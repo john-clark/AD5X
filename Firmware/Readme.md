@@ -20,7 +20,7 @@
 - [Firmware_1.1.5-1.0.9](AD5X-1.1.5-1.0.9-3.0.6-20250718-Factory)
 - [Firmware_1.1.3-1.0.8](AD5X-1.1.3-1.0.8-3.0.6-20250705-Factory)
 - [Firmware_1.1.1-1.0.7](AD5X-1.1.1-1.0.7-3.0.6-20250612.tgz)
-- [Firmware_1.0.0-1.0.7](AD5X-1.1.0-1.0.7-20250517.tgz) _(Note the wrong version on the filename)_
+- [Firmware_1.1.0-1.0.7](AD5X-1.1.0-1.0.7-20250517.tgz) _(Note the wrong version on the filename)_
 - [Firmware_1.0.9-1.0.6](AD5X-1.0.9-1.0.6-20250424.tgz)
 - [Firmware_1.0.8-1.0.5](AD5X-1.0.8-1.0.5-20250418.tgz)
 - [Firmware_1.0.7-1.0.3](AD5X-1.0.7-1.0.3-20250408.tgz)
