@@ -9,7 +9,7 @@
 *   [Log copying](https://www.youtube.com/watch?v=RLGg0xxQeuA)
 *   [Firmware upgrade via USB](https://www.youtube.com/watch?v=7ZL3QakQhYw)
 *   [Installation of IFS and spool holder](https://www.youtube.com/watch?v=rWyRJ5lGwQk)
-*   [Unclog the nozzle using a cold pull](Documentation/coldpull.mp4)
+*   [Unclog the nozzle using a cold pull](coldpull.mp4)
 
 ## Intermediate Maintenance
 
@@ -47,5 +47,6 @@ IFS Maintenance
 
 *   [Removal and installation of IFS module](https://www.youtube.com/watch?v=pKcQT98wHyg)
 *   [Replacement of 4-in-1 channel and filament guide tube](https://www.youtube.com/watch?v=TUNURbdQIx4)
+
 
 **TODO:** _Download to repository_
