@@ -15,6 +15,7 @@
 
 # Firmware releases
 
+- [Firmware_1.1.7-1.1.0](AD5X-1.1.7-1.1.0-3.0.6-20250912-Factory.tgz)
 - [Firmware_1.1.6-1.1.0](AD5X-1.1.6-1.1.0-3.0.6-20250729.tgz)
 - [Firmware_1.1.5-1.0.9](AD5X-1.1.5-1.0.9-3.0.6-20250718-Factory)
 - [Firmware_1.1.3-1.0.8](AD5X-1.1.3-1.0.8-3.0.6-20250705-Factory)
