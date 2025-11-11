@@ -1,71 +1,80 @@
+## **Flashforge AD5X Intelligent Filament Switcher (IFS) Board – FPP0302 Main Board v1.0.4**
 
-#### **Main Controller – Nuvoton N32G451REL7 (on reverse side)**
+**Board Marking:** `FPP0302 Main Board v1.0.4`
 
--   32-bit **ARM Cortex-M4** microcontroller, comparable to STM32F4-series parts.
-    
--   Runs the **IFS control logic** and manages communication with the main printer board.
-    
--   Likely handles:
-    
-    -   Filament sensor input management.
-        
-    -   Stepper/motor or solenoid actuation for filament switching.
-        
-    -   Communications via UART / I²C / CAN-like protocol.
-        
+**Date code:** `2021-08-05`
 
-#### **“RS485-IN” Silk Label (top-right corner)**
+**Form factor:** 85 × 45 mm 2-layer PCB
 
--   Indicates a **differential serial interface**, electrically compliant with **RS-485**.
-    
--   Commonly used for long-run, noise-resistant communication or multi-drop buses.
-    
--   The **4-wire harness** going to the main board most likely carries:
-    
-    -   **VCC** (either 5 V or 24 V).
-        
-    -   **GND**.
-        
-    -   **D+ / D−** (differential signal pair, RS-485 or CAN-style).
-        
--   Suggests that the printer’s mainboard communicates with the IFS via a **robust, differential serial protocol**, not standard USB.
-    
+**Function:** Manages multi-filament routing and detection for the AD5X printer.
 
-#### **GateMod GM05GE 4254I Chip (lower-left area)**
 
--   Identified as an **RS-485 transceiver IC**.
-    
--   Converts UART-level logic from the MCU to the differential signal pair on the 4-wire cable.
-    
--   Confirms the presence of **RS-485 physical communication layer** between the IFS and printer mainboard.
-    
+## **Key Components & Markings**
 
-#### **Peripheral Connectors and Silkscreen Labels**
+###  Main Controller – Nuvoton N32G455REL7 (U5, back side)
 
--   **SILK1 – SILK5, TMS, Zero-CHK, 2Wire, etc.**
-    
-    -   Appear to be internal connection points for **sensor inputs**, **stepper/solenoid outputs**, or **calibration/testing**.
-        
-    -   “Zero-CHK” likely references a **zero-position sensor** or home switch input.
-        
-    -   “2Wire” may refer to an I²C or simple digital sensor line.
-        
+* 32-bit **ARM Cortex-M4** microcontroller, comparable to STM32F4-series parts.
+* 128 KB Flash, 32 KB SRAM, up to 96 MHz core clock.
+* Handles:
+  * Filament sensor monitoring and switching logic.
+  * Communication with the printer’s mainboard via RS-485.
+  * Motor or actuator control for channel switching.
 
-#### **Power / Driver Section (R60–R66 area)**
+###  RS-485 Communication Interface – “RS485-IN” port (front, top-right)
 
--   Cluster of resistors and decoupling capacitors forming part of the **power and driver stage**.
-    
--   Suggests some level of current control or protection for switching elements or motors.
-    
+* 4-pin JST-XH-style connector for the cable to the **main printer board** .
+* The **4-wire harness** going to the main board carries:
+  * **VCC** (5 V or 24 V power input)
+  * **GND**
+  * **D+ / D–** (differential data pair, RS-485 standard)
+* Provides robust half-duplex serial communications between the IFS and the printer mainboard.
 
-#### **U4, U5 Region (right side)**
+- Suggests that the printer’s mainboard communicates with the IFS via a **robust, differential serial protocol**, not standard USB.
 
--   Two small ICs (likely **motor drivers**, **analog switches**, or **MOSFET arrays**).
-    
--   Functions could include:
-    
-    -   Stepper or DC motor control for filament feed paths.
-        
-    -   Switching multiple filament sensor lines.
-        
-    -   Possibly multiplexing signals to support multiple filament channels.
+#### RS-485 Transceiver – GateMod GM05GE 4254I (U2, lower-left)
+
+* Converts UART logic from the MCU to differential RS-485.
+* Enables long cable runs and noise immunity between boards.
+* Works in tandem with the Nuvoton MCU’s UART interface.
+
+#### 🔌 Peripheral Connectors (front, upper half)
+
+* **SILK1 – SILK5** : Local sensor and filament channel interfaces.
+
+  Each likely corresponds to an optical or mechanical filament sensor or motor driver channel.
+* **TMS / Zero-CHK / 2Wire** : Internal diagnostics or expansion test headers.
+
+  * "TMS"
+  * “Zero-CHK” likely references a **zero-position sensor** or home switch input.
+  * “2Wire” may refer to an I²C or simple digital sensor line.
+* **A / B headers (right edge)** : stepper driver for selecting filament channels.
+
+###  Local Power Regulation (front, bottom-center)
+
+* Switching regulator with coil labeled **L8 = 100** and diodes/caps cluster (C12–C17).
+* Provides 5 V → 3.3 V regulation for the MCU and transceivers.
+* Bulk electrolytic and ceramic caps ensure stable logic supply.
+
+#### **Driver Section (R60–R66 area)**
+
+- Cluster of resistors and decoupling capacitors forming part of the **power and driver stage**.
+- Suggests some level of current control or protection for switching elements or motors
+
+#### Driver or Multiplexer ICs – MS355776 JCGDE9E (U3, U4, back side)
+
+* Two identical chips positioned symmetrically on the back side (likely **motor drivers**, **analog switches**, or **MOSFET arrays**).
+  * Functions could include:
+    * Stepper or DC motor control for filament feed paths.
+    * Switching multiple filament sensor lines.
+    * Possibly multiplexing signals to support multiple filament channels.
+
+---
+
+### **Board Communication Path**
+
+
+| Link                         | Connector                 | Signaling                       | Function                                    |
+| ------------------------------ | --------------------------- | --------------------------------- | --------------------------------------------- |
+| To Main Printer Board        | 4-pin “RS485-IN”        | RS-485 (Differential UART)      | Command/control interface to AD5X mainboard |
+| To Local Sensors / Actuators | SILK1–SILK5, A/B headers | GPIO / PWM / I²C (3.3 V logic) | Filament sensor inputs & driver outputs     |
+| Debug / Test                 | TMS, Zero-CHK, 2Wire      | Internal                        | Factory programming & calibration           |
