@@ -78,3 +78,28 @@
 | To Main Printer Board        | 4-pin “RS485-IN”        | RS-485 (Differential UART)      | Command/control interface to AD5X mainboard |
 | To Local Sensors / Actuators | SILK1–SILK5, A/B headers | GPIO / PWM / I²C (3.3 V logic) | Filament sensor inputs & driver outputs     |
 | Debug / Test                 | TMS, Zero-CHK, 2Wire      | Internal                        | Factory programming & calibration           |
+
+
+## Possible Alternatives
+
+- **Seleadlab MMX Multi Material Extruder Full Kit Multi Material MMU 3D Printer for Voron2.4 Trident** Original to the Low Rider
+
+  - [AliExpress](https://www.aliexpress.us/item/3256808621305078.html) 
+  - [Printables](https://www.printables.com/model/1181017-mmx-multi-material-extruder-exclusive-final-releas)
+  - [gist](https://gist.github.com/StefanKruk/24bad4b4887b5f01f8370a23bd7d6597)
+
+- **Multi-Material Upgrade Unit for Klipper & Voron 3D Printers – Blurolls Low Rider MMU Easy Install Compact Design Open Source**
+
+  - [AliExpress](https://www.aliexpress.us/item/3256809802160419.html)
+  - [Printables](https://www.printables.com/model/1314513-low-rider-mmu-for-any-klipper-printer)
+
+- **BLV AMS BMCU 370X BMCU 370C Open source AMS MMU solutions AMS lite 370 130 BMCU370 support Auto Refill Farm**
+
+  - [AliExpress](https://www.aliexpress.us/item/3256808814657000.html)
+  - [Github](https://github.com/nozzlenaut/BMCU/tree/main)
+  - [Makerworld](https://makerworld.com/en/models/1088880-bmcu-v2-5-for-personal-use#profileId-1081967)
+
+- Pico MMU
+
+  - [Makerworld](https://makerworld.com/en/models/1636170-mmu-multi-material-upgrade-diy#profileId-1728491)
+  - [Github](https://github.com/lhndo/LH-Stinger/wiki/Pico-MMU)
